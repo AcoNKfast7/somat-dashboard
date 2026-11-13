@@ -86,7 +86,7 @@ if st.session_state.get("user"):
 
 COLLAPSED = bool(st.session_state["sb_collapsed"])
 IS_DARK = not bool(st.session_state["light_mode"])
-st.markdown(f"<style>{styles.build_css(IS_DARK, COLLAPSED)}{ui_kit.ui_css(IS_DARK)}</style>", unsafe_allow_html=True)
+st.markdown(styles.build_css(IS_DARK, COLLAPSED).strip() + "<style>" + ui_kit.ui_css(IS_DARK) + "</style>", unsafe_allow_html=True)
 
 
 def _toggle_theme():
